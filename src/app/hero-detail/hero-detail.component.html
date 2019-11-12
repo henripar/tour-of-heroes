@@ -1,0 +1,10 @@
+<div *ngIf="hero">
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/> <!--Toinen data binding tyyppi:
+        kahden suuntainen "two way binding" yhdistaa luokan hero.name ja taman kentan, jotta data voi liikkua molempiin suuntiin. -->
+      </label>
+    </div>
+    </div>

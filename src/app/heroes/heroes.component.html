@@ -3,26 +3,10 @@
   <li *ngFor="let hero of heroes" 
   [class.selected]="hero === selectedHero"
   (click)="onSelect(hero)"
-  > <!--Kolmas databinding: event binding-->
+  > <!--Kolmas databinding: event binding. Sitoo tämän click eventin classin onSelect(hero) metodiin-->
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-<h2>{{selectedHero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{selectedHero.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-  </label>
-</div>
-</div>
-
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/> <!--Toinen databinding tyyppi: 
-        kahden suuntainen "two way binding" yhdistaa luokan hero.name ja taman kentan, jotta data voi liikkua molempiin suuntiin. -->
-    </label>
-  </div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail> <!--Toinen databinding muoto: property binding. One way binding,
+   joka sitoo komponentin classin hero propertyyn ja sen selected hero ominaisuuteen. -->
