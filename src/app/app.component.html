@@ -1,5 +1,10 @@
 <!--Tämä tiedosto on ns. juuri (template) komponentti, jossa muut kompnentit näkyvät-->
 
 <h1>{{title}}</h1> <!-- Tässä käytetään string interpolaatiota bindamaan luokan title property tähän templaattiin (tämä on 1. data binding tyyppi)-->
-<app-heroes></app-heroes>
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a> <!--routerLink direktiivi määrittää käyttäjän klikkaukset 
+        "reititys" navigoinniksi. Reitittäjä yhdistää /heroes attribuutin HeroesComponent komponenttiin.-->
+  </nav>
+<router-outlet></router-outlet> <!-- <router-outlet> kertoo "reitittäjälle" (router) missä näytetään reititetyt "viewit"-->
 <app-messages></app-messages>

@@ -1,13 +1,10 @@
 <!--heroes komponentin templaatti eli "view" sisältää heroes komponentin www-sivulla näkyvät elementit-->
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" 
-  [class.selected]="hero === selectedHero"
-  (click)="onSelect(hero)"
-  > <!--Kolmas databinding: event binding. Sitoo tämän click eventin classin onSelect(hero) metodiin-->
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+    </li>
+  </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail> <!--Toinen databinding muoto: property binding. One way binding,
-   joka sitoo komponentin classin hero propertyyn ja sen selected hero ominaisuuteen. -->
